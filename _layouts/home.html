@@ -5,17 +5,44 @@
     <title>{{ page.title }} | {{ site.title }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}">
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        min-height: 100vh;
+        min-width: 100vw;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        transition: background-image 1s ease-in-out;
+      }
+      .hidden-content {
+        display: none;
+      }
+    </style>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const images = [
+          '/assets/images/background-1.jpg',
+          '/assets/images/background-2.jpg',
+          '/assets/images/background-3.jpg',
+          '/assets/images/background-4.jpg'
+        ];
+        function setRandomBackground() {
+          const idx = Math.floor(Math.random() * images.length);
+          document.body.style.backgroundImage = `url('${images[idx]}')`;
+        }
+        setRandomBackground();
+        setInterval(setRandomBackground, 5000); // Change every 5 seconds
+      });
+    </script>
   </head>
   <body>
-    <header>
-      <h1><a href="{{ '/' | relative_url }}">{{ site.title }}</a></h1>
-      <p>{{ site.description }}</p>
-    </header>
-    <main>
+    <main class="hidden-content">
       {{ content }}
     </main>
-    <footer>
-      <p>&copy; {{ site.time | date: '%Y' }} {{ site.title }}</p>
-    </footer>
   </body>
 </html>
