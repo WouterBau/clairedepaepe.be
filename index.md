@@ -1,8 +1,8 @@
 ---
 layout: home
 title: Welcome
+description: "Claire De Paepe · Dierenkunstenaar. Artiste Peintre Animalier. Animal Artist."
+image: "/assets/images/profile.webp"
 ---
 
-# Welcome to Claire De Paepe's Website
-
-This is the homepage. Edit `index.md` to update this content.
+# Welcome to Claire Depaepe's Website
