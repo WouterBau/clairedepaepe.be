@@ -1,0 +1,13 @@
+# Site settings
+
+title: Claire De Paepe
+email: claire@example.com
+description: >- # this means to ignore newlines until "baseurl:"
+  Claire De Paepe · Dierenkunstenaar. Artiste Peintre Animalier. Animal Artist.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://www.clairedepaepe.be" # the base hostname & protocol for your site
+
+# Build settings
+theme: minima
+plugins:
+  - jekyll-feed
