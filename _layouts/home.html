@@ -45,14 +45,25 @@
           currentIndex = (currentIndex + 1) % images.length;
         }
         
+        // Set initial image immediately without transition
+        function setInitialBackground() {
+          document.body.style.transition = 'none';
+          document.body.style.backgroundImage = `url('${images[currentIndex]}')`;
+          currentIndex = (currentIndex + 1) % images.length;
+          // Re-enable transitions after a short delay
+          setTimeout(() => {
+            document.body.style.transition = 'background-image 1s ease-in-out';
+          }, 100);
+        }
+        
         // Preload images first, then start slideshow
         preloadImages().then(() => {
-          setNextBackground(); // Set initial image
+          setInitialBackground(); // Set initial image without transition
           setInterval(setNextBackground, 5000); // Change every 5 seconds
         }).catch(error => {
           console.log('Some images failed to load:', error);
           // Still start the slideshow even if some images fail
-          setNextBackground();
+          setInitialBackground();
           setInterval(setNextBackground, 5000);
         });
       });
